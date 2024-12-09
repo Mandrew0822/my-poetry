@@ -13,7 +13,6 @@
             background-color: #1a0b2e;
             color: #e0d0ff;
         }
-
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -21,19 +20,17 @@
             flex-direction: column;
             gap: 20px;
         }
-
         .poem-card {
             background-color: #2a1b3d;
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 6px 12px rgba(0,0,0,0.3);
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
-
         .poem-card:hover {
             transform: scale(1.02);
         }
-
         .poem-title {
             color: #7b68ee;
             margin-bottom: 20px;
@@ -41,103 +38,207 @@
             border-bottom: 2px solid #4a2b5d;
             padding-bottom: 10px;
         }
-
         .poem-text {
             white-space: pre-wrap;
             font-style: italic;
             text-align: center;
         }
-
         h1 {
             color: #9370db;
             text-align: center;
             margin-bottom: 30px;
+        }
+        /* Modal Styles */
+        #poemModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .modal-content {
+            background-color: #2a1b3d;
+            margin: 10% auto;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 700px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        .close-btn {
+            color: #7b68ee;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .modal-poem-title {
+            color: #7b68ee;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4a2b5d;
+            padding-bottom: 10px;
+        }
+        .modal-poem-text {
+            white-space: pre-wrap;
+            font-style: italic;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Andrew's Poetry Collection</h1>
-
-	<div class="poem-card">
+        <div class="poem-card" data-title="En Passant" data-text="In passing, two soldiers, merely puppets in the fray,
+Hallowed husks, who don't own their cold, decaying breath,
+They are only marionettes who live solely for the entity they call master,
+There exists no soul, no thoughts, and no will not ordained by the grandmaster,
+Through mist and mud they're made to obey,
+Each step prescribed like all the rest.
+Their armor gleams but hearts are carved from alabaster,
+Two kingdoms wage their games with lives cast faster,
+No glory found where shadows lay,
+Like rusted horns bereft of breath,
+Each swings their blade, as strings command them faster.">
             <h2 class="poem-title">En Passant</h2>
             <div class="poem-text">
 In passing, two soldiers, merely puppets in the fray,
 Hallowed husks, who don't own their cold, decaying breath,
 They are only marionettes who live solely for the entity they call master,
-
 There exists no soul, no thoughts, and no will not ordained by the grandmaster,
 Through mist and mud they're made to obey,
 Each step prescribed like all the rest.
-
 Their armor gleams but hearts are carved from alabaster,
 Two kingdoms wage their games with lives cast faster,
 No glory found where shadows lay,
-
 Like rusted horns bereft of breath,
 Each swings their blade, as strings command them faster.
-
             </div>
         </div>
-
-        <div class="poem-card">
+        <div class="poem-card" data-title="The Divine ποιητής" data-text="Stars ignite the velvet night,
+Mountains soar to tear the sky,
+Oceans roar, and yet are confined,
+In nature's art, the heart's reply.
+Sunrise spills in a blossoming rose,
+Sunset's blaze, like molten gold,
+Every leaf and creature flows,
+In the tapestry of life, his love is told.
+Seasons waltz in cosmic dance,
+Morning mist and twilight's veil,
+Hints of a divine romance,
+In every moment, a second chance.
+In each breath, a world unfurled,
+With each detail pearled,
+Whispers of a love so vast,
+Echoes of eternity, forever cast.">
             <h2 class="poem-title">The Divine ποιητής</h2>
             <div class="poem-text">
 Stars ignite the velvet night,
 Mountains soar to tear the sky,
 Oceans roar, and yet are confined,
 In nature's art, the heart's reply.
-
 Sunrise spills in a blossoming rose,
 Sunset's blaze, like molten gold,
 Every leaf and creature flows,
 In the tapestry of life, his love is told.
-
 Seasons waltz in cosmic dance,
 Morning mist and twilight's veil,
 Hints of a divine romance,
 In every moment, a second chance.
-
 In each breath, a world unfurled,
 With each detail pearled,
 Whispers of a love so vast,
 Echoes of eternity, forever cast.
             </div>
         </div>
-
-        <div class="poem-card">
+        <div class="poem-card" data-title="The Deceased Violinist" data-text="A lifeless corpse holds the lively contrivance.
+The instrument overflows with soothing power.
+A soothing power that doesn't reach its master.
+The strings that reverberates with love and kindness
+It's simply used to mask the deceit.
+An audience which just hears sweet tones, forgets to ignore the hypocrisy.">
             <h2 class="poem-title">The Deceased Violinist</h2>
             <div class="poem-text">
 A lifeless corpse holds the lively contrivance.
 The instrument overflows with soothing power.
 A soothing power that doesn't reach its master.
-
 The strings that reverberates with love and kindness
 It's simply used to mask the deceit.
 An audience which just hears sweet tones, forgets to ignore the hypocrisy.
             </div>
         </div>
-
-	<div class="poem-card">
+        <div class="poem-card" data-title="Cor Mundatur" data-text="In a realm where shadow's bind
+A wind parts and subdues one's cries
+The chains which confine one's heart begin to whine
+The former reign succumbs to the bane
+A single blossom is birthed from the pain
+The reformed heart delights in this new light
+And lives on from this respite">
             <h2 class="poem-title">Cor Mundatur</h2>
             <div class="poem-text">
 In a realm where shadow's bind
-
 A wind parts and subdues one's cries
-
 The chains which confine one's heart begin to whine
-
-
 The former reign succumbs to the bane
-
 A single blossom is birthed from the pain
-
 The reformed heart delights in this new light
-
 And lives on from this respite
             </div>
         </div>
-
     </div>
+
+    <!-- Modal -->
+    <div id="poemModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 class="modal-poem-title"></h2>
+            <div class="modal-poem-text"></div>
+        </div>
+    </div>
+
+    <script>
+        // Get all poem cards
+        const poemCards = document.querySelectorAll('.poem-card');
+        
+        // Get modal elements
+        const modal = document.getElementById('poemModal');
+        const modalTitle = modal.querySelector('.modal-poem-title');
+        const modalText = modal.querySelector('.modal-poem-text');
+        const closeBtn = modal.querySelector('.close-btn');
+
+        // Add click event to each poem card
+        poemCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Get poem title and text from data attributes
+                const title = card.getAttribute('data-title');
+                const text = card.getAttribute('data-text');
+
+                // Set modal content
+                modalTitle.textContent = title;
+                modalText.textContent = text;
+
+                // Display the modal
+                modal.style.display = 'block';
+            });
+        });
+
+        // Close modal when clicking on close button
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
